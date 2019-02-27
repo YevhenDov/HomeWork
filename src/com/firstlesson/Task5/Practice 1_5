@@ -1,0 +1,161 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Random;
+
+public class Practice_1_5 {
+
+    Random random = new Random();
+    int[] array;
+
+    public void createArray(){
+        array = new int[100000];;
+
+        for (int i = 0; i < array.length; i++){
+            array[i] = random.nextInt(100);
+        }
+    }
+
+    public void printArray(){
+        System.out.println("\n===============");
+
+        for (int i = 0; i < array.length; i++){
+            System.out.print(array[i] + " ");
+        }
+    }
+
+    public void bubbleSort(int[] array){
+        int bubble;
+        for (int i = 0; i < array.length; i++){
+            for (int j = i + 1; j < array.length; j++){
+                if (array[i] > array[j]){
+                    bubble = array[i];
+                    array[i] = array[j];
+                    array[j] = bubble;
+                }
+            }
+        }
+    }
+
+    public void quickSort(int[] array, int start, int end){
+        if (start >= end){return;}
+
+        int middle = start + (end - start) / 2;
+        int foundation = array[middle];
+
+        int i = start;
+        int j = end;
+
+        while (i <= j) {
+            while (array[i] < foundation) {
+                i++;
+            }
+            while (array[j] > foundation) {
+                j--;
+            }
+
+            if (i <= j) {
+                int bubble = array[i];
+                array[i] = array[j];
+                array[j] = bubble;
+                i++;
+                j--;
+            }
+        }
+
+        if (start < j) {quickSort(array, start, j);}
+        if (end > i) {quickSort(array, i, end);}
+    }
+
+    public void selectionSort(int[] array){
+        for (int i = 0; i < array.length; i++){
+            int min = array[i];
+            int minIndex = i;
+
+            for (int j = i + 1; j < array.length; j++){
+                if (array[j] < min){
+                    min = array[j];
+                    minIndex = j;
+                }
+            }
+
+            if (i != minIndex) {
+                int bubble = array[i];
+                array[i] = array[minIndex];
+                array[minIndex] = bubble;
+            }
+        }
+    }
+
+    public void insertionSort(int[] array){
+        for (int i = 1; i < array.length; i++){
+            for (int j = i - 1; (j >= 0) && (array[i] < array[j]); j--){
+                array[j + 1] = array[j];
+            }
+        }
+    }
+
+    public void countSort(int[] array, int length){
+        int[] counter = new int[length];
+        int index = 0;
+
+        for (int i : array){
+            counter[i]++;
+        }
+
+        for (int i = 0; i < counter.length; i++){
+            while (counter[i] > 0){
+                array[index] = i;
+                index++;
+                counter[i]--;
+
+            }
+        }
+
+    }
+
+    public static void main(String[] args){
+        Practice_1_5 practice = new Practice_1_5();
+        long startTime;
+        long endTime;
+
+        practice.createArray();
+        practice.printArray();
+        startTime = System.currentTimeMillis();
+        practice.quickSort(practice.array, 0, practice.array.length - 1);
+        endTime = System.currentTimeMillis();
+        practice.printArray();
+        System.out.println("\n\nquickSort time: " + (endTime - startTime));
+
+        practice.createArray();
+        practice.printArray();
+        startTime = System.currentTimeMillis();
+        practice.bubbleSort(practice.array);
+        endTime = System.currentTimeMillis();
+        practice.printArray();
+        System.out.println("\n\nbubbleSort time: " + (endTime - startTime));
+
+        practice.createArray();
+        practice.printArray();
+        startTime = System.currentTimeMillis();
+        practice.selectionSort(practice.array);
+        endTime = System.currentTimeMillis();
+        practice.printArray();
+        System.out.println("\n\nselectionSort time: " + (endTime - startTime));
+
+        practice.createArray();
+        practice.printArray();
+        startTime = System.currentTimeMillis();
+        practice.insertionSort(practice.array);
+        endTime = System.currentTimeMillis();
+        practice.printArray();
+        System.out.println("\n\ninsertionSort time: " + (endTime - startTime));
+
+        practice.createArray();
+        practice.printArray();
+        startTime = System.currentTimeMillis();
+        practice.countSort(practice.array, practice.array.length);
+        endTime = System.currentTimeMillis();
+        practice.printArray();
+        System.out.println("\n\ncountSort time: " + (endTime - startTime));
+    }
+}

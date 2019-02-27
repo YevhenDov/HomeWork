@@ -1,0 +1,15 @@
+public class Practice_1_1 {
+    public static void main(String[] args) {
+        Practice_1_1 practice = new Practice_1_1();
+        System.out.println(practice.method(9, 0, 8, 0));
+    }
+
+    public int method(int gr1, int gr2, int rate1, int rate2) {
+        int result;
+
+        result = (gr1 == rate1) && (gr2 == rate2) ? 2 :
+                (gr1 > gr2 && rate1 > rate2) || (gr2 > gr1 && rate2 > rate1) ? 1 : 0;
+
+        return result;
+    }
+}

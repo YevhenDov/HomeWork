@@ -1,0 +1,32 @@
+public class Practice_1_2b {
+    public void print(int starValue) {
+
+        for (int i = 0; i < starValue; i++) {
+            for (int j = 1; j < starValue - i; j++) {
+                System.out.print(" ");
+            }
+
+            for (int k = 0; k <= i; k++) {
+                System.out.print("* ");
+            }
+            System.out.println("");
+        }
+
+        for (int i = starValue - 2; i >= 0; i--) {
+            for (int j = 1; j < starValue - i; j++) {
+                System.out.print(" ");
+            }
+
+            for (int k = 0; k <= i; k++) {
+                System.out.print("* ");
+            }
+            System.out.println("");
+        }
+    }
+
+    public static void main(String[] args) {
+        Practice_1_2b practiceB = new Practice_1_2b();
+        practiceB.print(5);
+
+    }
+}

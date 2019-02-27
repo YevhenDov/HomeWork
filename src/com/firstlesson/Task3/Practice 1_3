@@ -1,0 +1,15 @@
+public class Practice_1_3 {
+    public static void main(String[] args){
+        Practice_1_3 practice = new Practice_1_3();
+        System.out.println(practice.power(5, 7));
+    }
+
+    public int power(int num, int power){
+        int res = num;
+        for (int i = 1; i < power; i++){
+            res = res * num;
+        }
+
+        return res;
+    }
+}
