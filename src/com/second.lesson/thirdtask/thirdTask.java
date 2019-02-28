@@ -1,8 +1,8 @@
-package com.secondlesson.Task3;
+package com.second.lesson.thirdtask;
 
 import java.util.Random;
 
-public class thirdTask {
+public class ThirdTask {
 
     Random random = new Random();
     int[] array = new int[100];
@@ -15,29 +15,33 @@ public class thirdTask {
     }
 
     public void printArray(int[] arr) {
-        System.out.println("\n===============");
 
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
     }
 
+    private static int[] bubble(int[] arr, int key1, int key2){
+        int bubble = arr[key1];
+        arr[key1] = arr[key2];
+        arr[key2] = bubble;
+        return arr;
+    }
+
     public static int[] bubbleSort(int[] arr) {
         int[] array = new int[arr.length];
         System.arraycopy(arr, 0, array, 0, arr.length);
 
-        int bubble;
         for (int i = 0; i < array.length; i++) {
             for (int j = i + 1; j < array.length; j++) {
                 if (array[i] > array[j]) {
-                    bubble = array[i];
-                    array[i] = array[j];
-                    array[j] = bubble;
+                    array = bubble(array, i, j);
                 }
             }
         }
         return array;
     }
+
 
     public static int[] quickSort(int[] arr, int start, int end) {
         int[] array = new int[arr.length];
@@ -62,9 +66,7 @@ public class thirdTask {
             }
 
             if (i <= j) {
-                int bubble = array[i];
-                array[i] = array[j];
-                array[j] = bubble;
+                array = bubble(array, i, j);
                 i++;
                 j--;
             }
@@ -95,9 +97,7 @@ public class thirdTask {
             }
 
             if (i != minIndex) {
-                int bubble = array[i];
-                array[i] = array[minIndex];
-                array[minIndex] = bubble;
+                array = bubble(array, i, minIndex);
             }
         }
         return array;
@@ -138,23 +138,23 @@ public class thirdTask {
     }
 
     public static void main(String[] args) {
-        thirdTask practice = new thirdTask();
+        ThirdTask practice = new ThirdTask();
         practice.createArray();
         practice.printArray(practice.array);
 
-        System.out.println("\nquickSort");
+        System.out.println("\n\nquickSort");
         practice.printArray(practice.quickSort(practice.array, 0, practice.array.length - 1));
 
-        System.out.println("\nbubbleSort");
+        System.out.println("\n\nbubbleSort");
         practice.printArray(practice.bubbleSort(practice.array));
 
-        System.out.println("\nselectionSort");
+        System.out.println("\n\nselectionSort");
         practice.printArray(practice.selectionSort(practice.array));
 
-        System.out.println("\ninsertionSort");
+        System.out.println("\n\ninsertionSort");
         practice.printArray(practice.insertionSort(practice.array));
 
-        System.out.println("\ncountSort");
+        System.out.println("\n\ncountSort");
         practice.printArray(practice.countSort(practice.array, practice.array.length));
     }
 }
