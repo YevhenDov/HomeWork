@@ -1,4 +1,4 @@
-package com.secondlesson.Task4;
+package com.second.lesson.fourtask;
 
 public final class Student {
 
