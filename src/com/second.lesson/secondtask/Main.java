@@ -1,4 +1,4 @@
-package com.secondlesson.Task2;
+package com.second.lesson.secondtask;
 
 public class Main {
     private String str1 = "MateAcademy(Str1)";
@@ -6,7 +6,7 @@ public class Main {
     public static void main(String [] args){
 
         //Anonymous class
-        AnonymousClass method = new AnonymousClass(){
+        Anonymous method = new Anonymous(){
             @Override
             public void printAcademy() {
                 System.out.println("MateAcademy");
@@ -19,12 +19,12 @@ public class Main {
         innerClass.strOut();
 
         //Inner static class
-        InnerStaticClass.Factorial factorial = InnerStaticClass.getFactorial(8);
+        InnerStatic.Factorial factorial = InnerStatic.getFactorial(8);
         System.out.println("Факториал числа: " + factorial.getValue() + " = " + factorial.getResult());
 
         //Local class
-        LocalClass localClass = new LocalClass();
-        localClass.intOut();
+        Local local = new Local();
+        local.intOut();
     }
 
     class InnerClass {

@@ -1,6 +1,6 @@
-package com.secondlesson.Task2;
+package com.second.lesson.secondtask;
 
-public class LocalClass {
+public class Local {
 
     int x = 25;
 

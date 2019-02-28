@@ -1,6 +1,6 @@
-package com.secondlesson.Task2;
+package com.second.lesson.secondtask;
 
-public class AnonymousClass {
+public class Anonymous {
     public void printAcademy(){
         System.out.print("Mate");
     }
