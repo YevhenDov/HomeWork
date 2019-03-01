@@ -1,4 +1,4 @@
-package com.third.lesson.Car;
+package com.third.lesson.car;
 
 public class Car {
     private final int yearOfManufacture;
@@ -12,8 +12,8 @@ public class Car {
     private int numbOfDoors = 4;
     private float maxPossibleSpeed;
 
-    private CarWheel[] carWheelsArr;
-    private CarDoor[] carDoorsArr;
+    private CarWheel[] carWheelsArr = new CarWheel[numbOfWheels];
+    private CarDoor[] carDoorsArr = new CarDoor[numbOfDoors];
 
     public Car(int yearOfManufacture) {
         this.yearOfManufacture = yearOfManufacture;
@@ -27,16 +27,9 @@ public class Car {
         this.accelSpeed = accelSpeed;
         this.maxPassValue = maxPassValue;
         this.speed = speed;
-        this.carWheelsArr = new CarWheel[numbOfWheels];
-        this.carDoorsArr = new CarDoor[numbOfDoors];
 
-        for (int i = 0; i < numbOfWheels; i++) {
-            this.carWheelsArr[i] = new CarWheel();
-        }
-
-        for (int i = 0; i < numbOfDoors; i++) {
-            this.carDoorsArr[i] = new CarDoor();
-        }
+        addWheel(new CarWheel());
+        addDoor(new CarDoor());
     }
 
     public int getYearOfManufacture() {
@@ -77,6 +70,18 @@ public class Car {
 
     public void setSpeed(int speed) {
         this.speed = speed;
+    }
+
+    private void addWheel(CarWheel wheel){
+        for (int i = 0; i < numbOfWheels; i++){
+            carWheelsArr[i] = wheel;
+        }
+    }
+
+    private void addDoor(CarDoor door){
+        for (int i = 0; i < numbOfDoors; i++){
+            carDoorsArr[i] = door;
+        }
     }
 
     public void addPassenger() {
