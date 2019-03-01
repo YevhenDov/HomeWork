@@ -1,41 +1,39 @@
 package com.third.lesson.Car;
 
 public class CarDoor {
-    private boolean doorState;
-    private boolean windowState;
+    private boolean isDoorOpen;
+    private boolean isWindowOpen;
 
     public CarDoor(){
-        doorState = false;
-        windowState = true;
     }
 
     public CarDoor(boolean doorState, boolean windowState){
-        this.doorState = doorState;
-        this.windowState = windowState;
+        this.isDoorOpen = doorState;
+        this.isWindowOpen = windowState;
     }
 
     public boolean isDoorState() {
-        return doorState;
+        return isDoorOpen;
     }
 
     public boolean isWindowState() {
-        return windowState;
+        return isWindowOpen;
     }
 
     public void openDoor(){
-        doorState = true;
+        isDoorOpen = true;
     }
 
     public void closeDoor(){
-        doorState = false;
+        isDoorOpen = false;
     }
 
     public void openWindow(){
-        windowState = true;
+        isWindowOpen = true;
     }
 
     public void closeWindow(){
-        windowState = false;
+        isWindowOpen = false;
     }
 
     public void changeDoorState(boolean doorState){
@@ -59,16 +57,16 @@ public class CarDoor {
     }
 
     public void outData(){
-        if (doorState){
+        if (isDoorOpen){
             System.out.println("Door open");
         }
-        if (doorState == false){
+        if (isDoorOpen == false){
             System.out.println("Door close");
         }
-        if (windowState){
+        if (isWindowOpen){
             System.out.println("Window open");
         }
-        if (windowState == false){
+        if (isWindowOpen == false){
             System.out.println("Window close");
         }
     }
