@@ -19,9 +19,5 @@ public class Main {
         System.out.println(str.get(3));
         str.clear();
         System.out.println(str.size());
-
-
-
-
     }
 }

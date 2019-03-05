@@ -1,7 +1,7 @@
 package com.fourth.lesson.firsttask;
 
 public class MyLinkedList<E> implements MyList<E>{
-    int size;
+    private int size;
 
     private Node<E> first;
     private Node<E> last;
@@ -39,7 +39,6 @@ public class MyLinkedList<E> implements MyList<E>{
         }
         return element;
     }
-
 
     @Override
     public int size() {
@@ -89,7 +88,5 @@ public class MyLinkedList<E> implements MyList<E>{
             this.next = next;
             this.prev = prev;
         }
-
     }
-
 }

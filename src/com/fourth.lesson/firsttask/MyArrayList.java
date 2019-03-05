@@ -5,7 +5,6 @@ public class MyArrayList<T> implements MyList<T> {
     static final int DEFAULT_ARRAY_CAPACITY = 10;
     private Object[] dataArray;
     private int arraySize;
-//    private int index;
 
     public MyArrayList() {
         dataArray = new Object[DEFAULT_ARRAY_CAPACITY];
