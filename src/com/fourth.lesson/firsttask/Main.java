@@ -1,23 +1,19 @@
 package com.fourth.lesson.firsttask;
 
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class Main {
-    public static void main(String[] args){
-        MyLinkedList<String> str = new MyLinkedList<>();
-        LinkedList<String> str1 = new LinkedList<>();
-
-        str.add("Str1");
-        str.add("Str2");
-        str.add("Str3");
-        str.add("Str4");
-        str.add("Str5");
-
-        System.out.println(str.size());
-        System.out.println(str.get(3));
-        str.remove(3);
-        System.out.println(str.get(3));
-        str.clear();
-        System.out.println(str.size());
+    public static void main(String[] args) {
+        MyList<String> str = new MyLinkedList<>();
+        MyStack<String> myStack = new MyStack<>(5);
+        myStack.push("123");
+        myStack.push("123");
+        myStack.push("123457");
+        myStack.push("123");
+        myStack.push("123");
+        myStack.push("123");
+        System.out.println(myStack.size());
+        System.out.println(myStack.remove(3));
     }
 }

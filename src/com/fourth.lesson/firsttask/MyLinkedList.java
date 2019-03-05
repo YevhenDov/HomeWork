@@ -2,7 +2,6 @@ package com.fourth.lesson.firsttask;
 
 public class MyLinkedList<E> implements MyList<E>{
     private int size;
-
     private Node<E> first;
     private Node<E> last;
 
@@ -30,7 +29,7 @@ public class MyLinkedList<E> implements MyList<E>{
     }
 
     private Node<E> getNode(int index) {
-        if (index < 0 || index > size){
+        if (index < 0 || index >= size){
             throw new IndexOutOfBoundsException();
         }
 
