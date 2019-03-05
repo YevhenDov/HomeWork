@@ -1,33 +1,32 @@
 package com.fourth.lesson.firsttask;
 
 
-public class MyArrayList<T> implements IMyList<T> {
+public class MyArrayList<T> implements MyList<T> {
     static final int DEFAULT_ARRAY_CAPACITY = 10;
-    public Object[] dataArray;
+    private Object[] dataArray;
     private int arraySize;
-    private int index;
+//    private int index;
 
     public MyArrayList() {
         dataArray = new Object[DEFAULT_ARRAY_CAPACITY];
     }
 
-    public MyArrayList(int arraySize) {
-        dataArray = new Object[arraySize];
+    public MyArrayList(int capacity) {
+        dataArray = new Object[capacity];
     }
 
     @Override
     public void add(T t) {
-        if (index == dataArray.length) {
+        if (arraySize == dataArray.length) {
             growArray();
         }
-        dataArray[index] = t;
-        index++;
+        dataArray[arraySize] = t;
         arraySize++;
     }
 
     private void growArray() {
         Object[] tempArray = new Object[dataArray.length * 2];
-        System.arraycopy(dataArray, 0, tempArray, 0, index - 1);
+        System.arraycopy(dataArray, 0, tempArray, 0, arraySize - 1);
         dataArray = tempArray;
     }
 
@@ -38,16 +37,15 @@ public class MyArrayList<T> implements IMyList<T> {
     }
 
     private void checkIndex(int index) {
-        if (index < 0 || index >= this.index) {
+        if (index < 0 || index >= this.arraySize) {
             throw new IllegalArgumentException();
         }
     }
 
     public void remove(int index) {
         checkIndex(index);
-        System.arraycopy(dataArray, index + 1, dataArray, index, this.index - index);
+        System.arraycopy(dataArray, index + 1, dataArray, index, arraySize - index);
         arraySize--;
-        this.index--;
     }
 
     public int size() {
@@ -58,5 +56,9 @@ public class MyArrayList<T> implements IMyList<T> {
         for (int i = 0; i < arraySize; i++) {
             dataArray[i] = null;
         }
+    }
+
+    public Object[] getDataArray() {
+        return dataArray;
     }
 }
