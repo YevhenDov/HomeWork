@@ -11,6 +11,7 @@ public class MyLinkedList<E> implements MyList<E>{
         last = first;
     }
 
+    @Override
     public void add(E e) {
         Node newNode = new Node(e, last, null);
         if (size == 0){
@@ -28,7 +29,7 @@ public class MyLinkedList<E> implements MyList<E>{
         return getNode(index).element;
     }
 
-    public Node<E> getNode(int index) {
+    private Node<E> getNode(int index) {
         if (index < 0 || index > size){
             throw new IndexOutOfBoundsException();
         }
@@ -50,7 +51,7 @@ public class MyLinkedList<E> implements MyList<E>{
         remove(getNode(index));
     }
 
-    public void remove(Node<E> element) {
+    private void remove(Node<E> element) {
         Node<E> prev = element.prev;
         Node<E> next = element.next;
 
