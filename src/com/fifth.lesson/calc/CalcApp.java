@@ -1,6 +1,5 @@
 package com.fifth.lesson.calc;
 
-
 public class CalcApp {
 
     public static void main(String[] args){
