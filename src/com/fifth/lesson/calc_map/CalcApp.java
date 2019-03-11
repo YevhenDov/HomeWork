@@ -20,6 +20,6 @@ public class CalcApp {
 
 
     public static double calculate(double value1, char sign2, double value2) {
-        return sign.getOrDefault(sign2, sign.get('n')).applyAsDouble(value1, value2);
+        return sign.getOrDefault(sign2, sign.get(sign)).applyAsDouble(value1, value2);
     }
 }
